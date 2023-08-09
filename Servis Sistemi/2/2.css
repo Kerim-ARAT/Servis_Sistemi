@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  #map {
+    height: 600px;
+  }
+  
+  #form {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+  }
+  
+  #form h2 {
+    margin-top: 0;
+  }
+  
+  #form p {
+    margin-bottom: 20px;
+  }
+  
+  #form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  #form button:hover {
+    opacity: 0.8;
+  }
+  
+  #form input[type="text"] {
+    padding: 8px;
+    width: 300px;
+    border: none;
+    border-radius: 5px;
+  }
+  
