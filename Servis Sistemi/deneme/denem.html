@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <title>Leaflet Pin Rota Oluşturma</title>
+</head>
+<body>
+    <div id="map" style="width: 100%; height: 500px;"></div>
+    <button id="resetMapButton">Haritayı Sıfırla</button>
+    <button id="newRouteButton">Yeni Rota Oluştur</button>
+    <a href="route.html" target="_blank">Kaydedilen Rotaları Görüntüle</a>
+    
+
+
+
+  <button id="saveRouteButton">Rotayı Kaydet</button>
+<input type="text" id="routeNameInput" placeholder="Rota İsmi">
+<!-- ... (diğer HTML kodları) -->
+
+<script>
+document.getElementById("saveRouteButton").addEventListener("click", function () {
+    saveRoute(markers);
+    refreshMap();
+});
+
+function saveRoute(markers) {
+    var savedRoutes = JSON.parse(localStorage.getItem("savedRoutes")) || [];
+    var latlngs = markers.map(function (marker) {
+        return marker.getLatLng();
+    });
+    var routeName = document.getElementById("routeNameInput").value; // Rota ismini al
+    savedRoutes.push({ latlngs: latlngs, color: 'blue', name: routeName }); // Rota ismini de kaydet
+    localStorage.setItem("savedRoutes", JSON.stringify(savedRoutes));
+    alert("Rota kaydedildi!");
+}
+</script>
+
+
+    
+
+
+
+    <script src="js.js"></script>
+     <script src="js.js"></script>
+    <script src="js_for_saved_routes.js"></script
+</body>
+</html>
