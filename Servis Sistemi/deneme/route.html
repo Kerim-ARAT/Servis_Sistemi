@@ -14,9 +14,33 @@
     
     <div>
         <div id="routeList"></div>
+        <button id="showSavedRoutesButton">Kaydedilen Rotaları Göster</button>
 <div id="savedRoutesMap" style="width: 100%; height: 500px;"></div>
 
+<button id="showSavedRoutesButton">Kaydedilen Rotaları Göster</button>
 
-    <script src="route.js"></script>
+<!-- Modal -->
+<div id="savedRoutesModal" style="display: none;">
+    <h2>Kaydedilen Rotalar</h2>
+    <ul id="savedRoutesListModal"></ul>
+</div>
+<script src="route.js"> </script>
+<script>
+    document.getElementById("showSavedRoutesButton").addEventListener("click", function () {
+        var savedRoutes = JSON.parse(localStorage.getItem("savedRoutes")) || [];
+        var savedRoutesListModal = document.getElementById("savedRoutesListModal");
+
+        savedRoutesListModal.innerHTML = ''; // Temizle
+
+        savedRoutes.forEach(function (route) {
+            var listItem = document.createElement("li");
+            listItem.textContent = route.name;
+            savedRoutesListModal.appendChild(listItem);
+        });
+
+        var modal = document.getElementById("savedRoutesModal");
+        modal.style.display = "block"; // Modalı görünür yap
+    });
+</script>
 </body>
 </html
